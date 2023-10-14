@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="32c44252-cc3b-4cd8-b006-f0aba775e54c" name="Changes" comment="add workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/chatPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/chatPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/groupPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/groupPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/hamburger_menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/hamburger_menu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/homePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/homePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/loginPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/loginPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/personalPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/personalPage.dart" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/christmes/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/christmes/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/christmes/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/windows/flutter/generated_plugins.cmake" afterDir="false" />
@@ -24,20 +12,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "C:/SDK/flutter/bin",
-    "settings.editor.selected.configurable": "dart.settings"
-  }
-}]]></component>
-  <component name="TaskManager">
-    <servers />
-  </component>
+
 </project>
