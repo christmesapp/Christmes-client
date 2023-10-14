@@ -9,6 +9,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 Future<void> main() async {
   await Hive.initFlutter();
   var box = await Hive.openBox('client');
+  var util = await Hive.openBox("util");
   print("username");
   print(box.get("username"));
   if(box.get("username")!=null){

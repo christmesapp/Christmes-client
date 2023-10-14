@@ -1,6 +1,7 @@
 import 'package:christmes/misc/colors.dart';
 import 'package:christmes/screens/homePage.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 
 class HamburgerMenu extends StatelessWidget {
@@ -16,7 +17,12 @@ class HamburgerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        themeMode: Hive.box('util').get("darkmode", defaultValue: true)? ThemeMode.dark : ThemeMode.light,
+    darkTheme: ThemeData.dark(),
+
+    home: Scaffold(
       appBar: AppBar(title: Text("Menü"),
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
@@ -72,6 +78,7 @@ class HamburgerMenu extends StatelessWidget {
           ],
         ),
       ),
+     ),
     );
   }
 }
