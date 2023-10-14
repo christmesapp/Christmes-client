@@ -47,10 +47,10 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 controller: userController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Username',
                     hintText: 'Enter valid username'),
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
               child: TextField(
                 controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
                     hintText: 'Enter secure password'),
@@ -75,14 +75,14 @@ class _LoginPageState extends State<LoginPage> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context){
-                    return AlertDialog(
+                    return const AlertDialog(
                       title: Text('Forgot Password function'),
                     );
                   },
                 );
               },
 
-              child: Text(
+              child: const Text(
                 'Forgot Password',
                 style: TextStyle(color: Colors.blue, fontSize: 15),
               ),
@@ -105,16 +105,16 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (_) => HomePage()));
                 },
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 130,
             ),
-      Container(
+      SizedBox(
         height: 20,
         width: 200,
         child: InkWell(
@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(
                 context, MaterialPageRoute(builder: (_) => RegisterPage()));
           },
-          child: Text('New User? Create Account'),
+          child: const Text('New User? Create Account'),
         ),
       ),
           ],

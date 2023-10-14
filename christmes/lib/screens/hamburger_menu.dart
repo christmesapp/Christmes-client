@@ -1,14 +1,15 @@
 import 'package:christmes/misc/colors.dart';
 import 'package:christmes/screens/homePage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 
 class HamburgerMenu extends StatelessWidget {
-  static const bluecolor = const Color(0xff2e6ca4);
-  static const whitecolor = const Color(0xfffafafa);
+  static const bluecolor = Color(0xff2e6ca4);
+  static const whitecolor = Color(0xfffafafa);
   var _selectedIndex = 0;
-  static List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
 
     Center(
         child: HomePage()
@@ -17,16 +18,13 @@ class HamburgerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        themeMode: Hive.box('util').get("darkmode", defaultValue: true)? ThemeMode.dark : ThemeMode.light,
-    darkTheme: ThemeData.dark(),
 
-    home: Scaffold(
-      appBar: AppBar(title: Text("Menü"),
+    return Scaffold(
+      appBar: AppBar(title: const Text("Menü"),
+
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        iconTheme: IconThemeData(color: bluecolor),
+        iconTheme: const IconThemeData(color: bluecolor),
 
       ),
       body:  Center(
@@ -44,7 +42,7 @@ class HamburgerMenu extends StatelessWidget {
               decoration: BoxDecoration(
                 color: whitecolor,
               ),
-              child: const Image(image: AssetImage('../img/christmes_logo_02.png')),
+              child: Image(image: AssetImage('../img/christmes_logo_02.png')),
               //Text('Drawer Header'),
             ),
             ListTile(
@@ -71,7 +69,7 @@ class HamburgerMenu extends StatelessWidget {
               onTap: () {
                 //onTap
                 _selectedIndex = 3;
-                print (_selectedIndex);
+
 
               },
             ),

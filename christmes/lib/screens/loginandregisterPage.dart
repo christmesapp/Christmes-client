@@ -18,7 +18,7 @@ class _LoginPageState extends State<RegisterPage> {
   final usernameController = TextEditingController();
   final passwordrepeatController = TextEditingController();
   final homeserverController = TextEditingController();
-  static const bluecolor = const Color(0xff2e6ca4);
+  static const bluecolor = Color(0xff2e6ca4);
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
@@ -52,7 +52,7 @@ class _LoginPageState extends State<RegisterPage> {
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 controller: userController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
                     hintText: 'Enter valid email id to register'),
@@ -64,7 +64,7 @@ class _LoginPageState extends State<RegisterPage> {
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               child: TextField(
                 controller: usernameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Username',
                     hintText: 'Enter a Username to register'),
@@ -77,7 +77,7 @@ class _LoginPageState extends State<RegisterPage> {
               child: TextField(
                 controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
                     hintText: 'Enter secure password'),
@@ -91,7 +91,7 @@ class _LoginPageState extends State<RegisterPage> {
                 controller: passwordrepeatController,
                 obscureText: true,
 
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Repeat Password',
                     hintText: 'Repeat your password'),
@@ -103,17 +103,15 @@ class _LoginPageState extends State<RegisterPage> {
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 controller: homeserverController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Homeserver',
                     hintText: 'Enter the homeserver of your organisation'),
               ),
             ),
-            Container(
-                child: SizedBox(
-                  height: 15,
-                  child: Text(""),
-                )
+            const SizedBox(
+              height: 15,
+              child: Text(""),
             ),
 
             Container(
@@ -132,16 +130,16 @@ class _LoginPageState extends State<RegisterPage> {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (_) => HomePage()));
                 },
-                child: Text(
+                child: const Text(
                   'Register',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 130,
             ),
-            Container(
+            SizedBox(
               height: 20,
               width: 250,
               child: InkWell(
@@ -150,7 +148,7 @@ class _LoginPageState extends State<RegisterPage> {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (_) => LoginPage()));
                 },
-                child: Text('Your have a Account? Login here!'),
+                child: const Text('Your have a Account? Login here!'),
               ),
             ),
 
