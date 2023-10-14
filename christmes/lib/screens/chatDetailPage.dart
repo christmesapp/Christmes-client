@@ -73,7 +73,7 @@ class ChatDetailPageState extends State<ChatDetailPage> {
                     ),
                   ),
 
-                  Icon(Icons.settings,color: Colors.black54,),
+                  const Icon(Icons.settings,color: Colors.black54,),
                 ],
               ),
             ),
@@ -89,11 +89,11 @@ class ChatDetailPageState extends State<ChatDetailPage> {
           ListView.builder(
             itemCount: messages.length,
             shrinkWrap: true,
-            padding: EdgeInsets.only(top: 10,bottom: 10),
-            physics: NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.only(top: 10,bottom: 10),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index){
               return Container(
-                padding: EdgeInsets.only(left: 14,right: 14,top: 10,bottom: 10),
+                padding: const EdgeInsets.only(left: 14,right: 14,top: 10,bottom: 10),
                 child: Align(
                   alignment: (messages[index].messageType == "receiver"?Alignment.topLeft:Alignment.topRight),
                   child: Container(
@@ -101,8 +101,8 @@ class ChatDetailPageState extends State<ChatDetailPage> {
                       borderRadius: BorderRadius.circular(20),
                       color: (messages[index].messageType  == "receiver"?Colors.grey.shade200:Colors.blue[200]),
                     ),
-                    padding: EdgeInsets.all(16),
-                    child: Text(messages[index].messageContent, style: TextStyle(fontSize: 15),),
+                    padding: const EdgeInsets.all(16),
+                    child: Text(messages[index].messageContent, style: const TextStyle(fontSize: 15),),
                   ),
                 ),
               );
@@ -111,7 +111,7 @@ class ChatDetailPageState extends State<ChatDetailPage> {
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
-              padding: EdgeInsets.only(left: 10,bottom: 10,top: 10),
+              padding: const EdgeInsets.only(left: 10,bottom: 10,top: 10),
               height: 60,
               width: double.infinity,
               color: Colors.white,
@@ -127,14 +127,14 @@ class ChatDetailPageState extends State<ChatDetailPage> {
                         color: Colors.lightBlue,
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: Icon(Icons.add, color: Colors.white, size: 20, ),
+                      child: const Icon(Icons.add, color: Colors.white, size: 20, ),
                     ),
                   ),
-                  SizedBox(width: 15,),
+                  const SizedBox(width: 15,),
                   Expanded(
                     child: TextField(
                       controller: myController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: "Write message...",
                           hintStyle: TextStyle(color: Colors.black54),
                           border: InputBorder.none
@@ -142,18 +142,18 @@ class ChatDetailPageState extends State<ChatDetailPage> {
 
                     ),
                   ),
-                  SizedBox(width: 15,),
+                  const SizedBox(width: 15,),
                   FloatingActionButton(
                     onPressed: () async {
                       print("pressed");
 
-                      MatrixClient client = new MatrixClient();
+                      MatrixClient client = MatrixClient();
                      client.sentmessage(myController.text, widget.roomID, (await Hive.box('client').get("username"))!, (await Hive.box('client').get("pwd"))!);
                       myController.text = "";
                       Navigator.pop(context);  // pop current page
                       Navigator.pushNamed(context, "Setting"); // push it back in
                     },
-                    child: Icon(Icons.send,color: Colors.white,size: 18,),
+                    child: const Icon(Icons.send,color: Colors.white,size: 18,),
                     backgroundColor: Colors.blue,
                     elevation: 0,
                   ),

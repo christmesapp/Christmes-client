@@ -14,7 +14,7 @@ class PersonalPage extends StatefulWidget {
   _PersonalPageState createState() => _PersonalPageState();
 }
 
-MatrixClient client = new MatrixClient();
+MatrixClient client = MatrixClient();
 class _PersonalPageState extends State<PersonalPage> {
 
 
@@ -133,7 +133,7 @@ class _PersonalPageState extends State<PersonalPage> {
                       onTap: () {},
                       icons: CupertinoIcons.delete_solid,
                       title: "Delete account",
-                      titleStyle: TextStyle(
+                      titleStyle: const TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.bold,
                       ),
@@ -144,7 +144,7 @@ class _PersonalPageState extends State<PersonalPage> {
                         onTap: () {
                           stderr.writeln('print me');
                         },
-                        titleStyle: TextStyle(
+                        titleStyle: const TextStyle(
                           color: Colors.grey,
                         )
                     )

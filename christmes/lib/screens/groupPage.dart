@@ -7,7 +7,7 @@ class GroupPage extends StatefulWidget {
   GroupPageState createState() => GroupPageState();
 }
 
-MatrixClient client = new MatrixClient();
+MatrixClient client = MatrixClient();
 class GroupPageState extends State<GroupPage> {
 
 
@@ -20,7 +20,7 @@ class GroupPageState extends State<GroupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
 
         child: Column(
 
@@ -34,11 +34,11 @@ class GroupPageState extends State<GroupPage> {
 
 
               child: Padding(
-                padding: EdgeInsets.only(left: 16,right: 16,top: 10),
+                padding: const EdgeInsets.only(left: 16,right: 16,top: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("Groups",style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),),
+                    const Text("Groups",style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),),
                     Container(
                       padding: EdgeInsets.only(left: 8,right: 8,top: 2,bottom: 2),
                       height: 30,
@@ -47,7 +47,7 @@ class GroupPageState extends State<GroupPage> {
                         color: Colors.pink[50],
                       ),
                       child: Row(
-                        children: <Widget>[
+                        children: const <Widget>[
                           Icon(Icons.add,color: Colors.pink,size: 20,),
                           SizedBox(width: 2,),
                           Text("Add New",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
@@ -60,7 +60,7 @@ class GroupPageState extends State<GroupPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 16,left: 16,right: 16),
+              padding: const EdgeInsets.only(top: 16,left: 16,right: 16),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search...",
@@ -81,8 +81,8 @@ class GroupPageState extends State<GroupPage> {
             ListView.builder(
               itemCount: chatUsers.length,
               shrinkWrap: true,
-              padding: EdgeInsets.only(top: 16),
-              physics: NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.only(top: 16),
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index){
                 return ConversationList(
 
