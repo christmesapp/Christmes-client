@@ -3,6 +3,7 @@ import 'dart:js_util';
 import '../utils/client.dart';
 import 'package:christmes/misc/colors.dart';
 import 'package:christmes/screens/loginPage.dart';
+import 'package:christmes/screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,12 +28,17 @@ class _PersonalPageState extends State<PersonalPage> {
       final top = coverHeight - profileHeight;
 
       final ImageProvider imageProvider = Image.network('https://matrix-client.matrix.org/_matrix/media/v3/thumbnail/matrix.org/tHwINSDGpHigLhiNfKAQxMeR?width=800&height=600&method=scale').image;
+      bool darkmode = Hive.box('util').get("darkmode", defaultValue: true);
 
+
+      
      return MaterialApp(
         debugShowCheckedModeBanner: false,
+       themeMode: darkmode ? ThemeMode.dark : ThemeMode.light,
+        darkTheme: ThemeData.dark(),
         home: Scaffold(
           //backgroundColor: Colors.white.withOpacity(.94),
-          backgroundColor: AppColors.lightBackground,
+          //backgroundColor: AppColors.lightBackground,
           //backgroundColor: AppColors.darkBackground,
           body: Padding(
             padding: const EdgeInsets.all(10),
@@ -86,8 +92,11 @@ class _PersonalPageState extends State<PersonalPage> {
                       title: 'Dark mode',
                       subtitle: "Automatic",
                       trailing: Switch.adaptive(
-                        value: false,
-                        onChanged: (value) {print("b");},
+                        value: darkmode,
+                        onChanged: (val) {
+                          print("b"+val.toString());
+                          Hive.box('util').put("darkmode", val);
+                          setState(() {});},
                       ),
                     ),
                   ],
