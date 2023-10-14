@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   //print(await Future.value(client.getAvatar()));
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HamburgerMenu()));
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
                 },
                 child: const Text(
                   'Login',

@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="daa658e5-071f-47be-9e0c-3ad6a8452e6b" name="Changes" comment="add changeable Homeserver">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/chatDetailPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/chatDetailPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/chatPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/chatPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/groupPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/groupPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/hamburger_menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/hamburger_menu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/homePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/homePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/loginPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/loginPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/loginandregisterPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/loginandregisterPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/christmes/lib/screens/personalPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/christmes/lib/screens/personalPage.dart" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,65 +9,5 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
-  </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="recentNewPullRequestHead">
-      <RepoCoordinatesHolder>
-        <option name="owner" value="christmesapp" />
-        <option name="repository" value="Christmes-client" />
-      </RepoCoordinatesHolder>
-    </option>
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "C:/SDK/flutter/bin",
-    "settings.editor.selected.configurable": "dart.settings"
-  }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\Christmes-client\christmes\lib\screens\login-register" />
-    </key>
-  </component>
-  <component name="TaskManager">
-    <task id="LOCAL-00001" summary="add changeable Homeserver">
-      <created>1697326628449</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1697326628449</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
-    <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="add changeable Homeserver" />
-    <option name="LAST_COMMIT_MESSAGE" value="add changeable Homeserver" />
-  </component>
+
 </project>

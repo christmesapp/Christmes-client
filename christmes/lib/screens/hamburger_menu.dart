@@ -2,6 +2,7 @@ import 'package:christmes/misc/colors.dart';
 import 'package:christmes/screens/homePage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 
 class HamburgerMenu extends StatelessWidget {
@@ -17,8 +18,10 @@ class HamburgerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(title: const Text("Menü"),
+
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         iconTheme: const IconThemeData(color: bluecolor),
@@ -73,6 +76,7 @@ class HamburgerMenu extends StatelessWidget {
           ],
         ),
       ),
+     ),
     );
   }
 }

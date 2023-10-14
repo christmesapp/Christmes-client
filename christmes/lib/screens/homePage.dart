@@ -10,14 +10,16 @@ import 'package:hive/hive.dart';
 
 
 class HomePage extends StatefulWidget {
-
   final String title = "Text";
 
+  // Füge diese Zeile hinzu
+
+
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   var _selectedIndex = 0;
   static final List<Widget> _pages = <Widget>[
     Center(
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(
           () {
         _selectedIndex = index;
@@ -39,12 +41,27 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+
+  void updateThemeMode() {
+    print("update" + Hive.box('util').get("darkmode", defaultValue: true).toString());
+    setState(() {
+      //darkmode = Hive.box('util').get("darkmode", defaultValue: true);
+
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        themeMode: Hive.box('util').get("darkmode", defaultValue: true)? ThemeMode.dark : ThemeMode.light,
+    darkTheme: ThemeData.dark(),
+
+    home: Scaffold(
       //appBar: AppBar(
       //  title: Text(widget.title),
       //),
+
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.redAccent,
@@ -69,8 +86,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+        onTap: onItemTapped,
       ),
+     ),
     );
   }
 }

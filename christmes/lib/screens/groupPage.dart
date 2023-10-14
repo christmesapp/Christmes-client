@@ -1,3 +1,5 @@
+import 'package:hive/hive.dart';
+
 import '../utils/client.dart';
 import 'package:christmes/models/chatUsersModel.dart';
 import 'package:christmes/widgets/conversationList.dart';
@@ -18,7 +20,12 @@ class GroupPageState extends State<GroupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        themeMode: Hive.box('util').get("darkmode", defaultValue: true)? ThemeMode.dark : ThemeMode.light,
+    darkTheme: ThemeData.dark(),
+
+    home: Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
 
@@ -99,6 +106,7 @@ class GroupPageState extends State<GroupPage> {
 
         ),
       ),
+     ),
     );
   }
 }
