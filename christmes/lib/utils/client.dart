@@ -19,10 +19,12 @@ ChatPageState cp = ChatPageState();
 class MatrixClient {
   String username="";
   String pwd="";
+  String homeserver="";
 
   MatrixClient() {
     username= Hive.box('client').get("username");
     pwd= Hive.box('client').get("pwd");
+    homeserver= "https://"+Hive.box('client').get("homeserver", defaultValue: "matrix-client.matrix.org")+"/";
     print(username+pwd);
 
   }
@@ -60,7 +62,7 @@ Future<Uri?> getAvatar () async {
   Future<void> getRooms() async {
     groupUsers = [];
     chatUsers = [];
-    await client.checkHomeserver("https://matrix-client.matrix.org/");
+    await client.checkHomeserver(homeserver);
 
     await client.login(
       LoginType.mLoginPassword,
@@ -135,7 +137,7 @@ Future<Uri?> getAvatar () async {
   //messages
 
   Future<void> sentmessage (String message, String roomID, String us, String pass) async {
-    await client.checkHomeserver("https://matrix-client.matrix.org/");
+    await client.checkHomeserver(homeserver);
 
     await client.login(
       LoginType.mLoginPassword,
@@ -156,10 +158,10 @@ Future<Uri?> getAvatar () async {
 
     username= Hive.box('client').get("username");
     pwd= Hive.box('client').get("pwd");
+    homeserver= "https://"+Hive.box('client').get("homeserver", defaultValue: "matrix-client.matrix.org")+"/";
 
 
-
-    await client.checkHomeserver("https://matrix-client.matrix.org/");
+    await client.checkHomeserver(homeserver);
 
     await client.login(
       LoginType.mLoginPassword,

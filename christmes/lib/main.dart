@@ -1,5 +1,5 @@
 import 'package:christmes/screens/homePage.dart';
-import 'package:christmes/screens/loginPage.dart';
+import 'package:christmes/screens/login-register/loginPage.dart';
 import 'package:christmes/screens/personalPage.dart';
 import 'package:christmes/utils/client.dart';
 import 'package:flutter/material.dart';

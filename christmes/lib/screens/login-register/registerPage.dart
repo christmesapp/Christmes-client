@@ -1,9 +1,9 @@
-import 'package:christmes/screens/loginPage.dart';
+import 'package:christmes/screens/login-register/loginPage.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import '../utils/client.dart';
-import 'homePage.dart';
+import '../../utils/client.dart';
+import '../homePage.dart';
 
 
 

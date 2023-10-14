@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:js_util';
 import '../utils/client.dart';
 import 'package:christmes/misc/colors.dart';
-import 'package:christmes/screens/loginPage.dart';
+import 'package:christmes/screens/login-register/loginPage.dart';
 import 'package:christmes/screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';

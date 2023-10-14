@@ -1,11 +1,12 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import '../misc/colors.dart';
-import '../utils/client.dart';
-import 'hamburger_menu.dart';
-import 'homePage.dart';
-import 'loginandregisterPage.dart';
+import '../../misc/colors.dart';
+import '../../utils/client.dart';
+import '../hamburger_menu.dart';
+import '../homePage.dart';
+import 'loginHomeserverPage.dart';
+import 'registerPage.dart';
 
 
 
@@ -71,7 +72,17 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextButton(
               onPressed: (){
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => LoginHomeserverPage()));
+              },
+
+              child: Text(
+                'Change Homeserver',
+                style: TextStyle(color: Colors.blue, fontSize: 15),
+              ),
+            ),
+            TextButton(
+              onPressed: (){
                 showDialog(
                   context: context,
                   builder: (BuildContext context){
