@@ -39,13 +39,28 @@ class ChatDetailPageState extends State<ChatDetailPage> {
     List<ChatMessage> messages = widget.Listmessages;
 
     String name = widget.roomName;
-    return Scaffold(
+
+    ThemeData theme = Theme.of(context); // Access the current theme
+    bool isDarkTheme = theme.brightness == Brightness.dark;
+    Color messageColor = isDarkTheme
+        ? Colors.grey[600]!
+        : Colors.grey[200]!;
+
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        themeMode: Hive.box('util').get("darkmode", defaultValue: true)? ThemeMode.dark : ThemeMode.light,
+    darkTheme: ThemeData.dark(),
+
+    home: Scaffold(
+
         appBar: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
+          //backgroundColor: Colors.white,
           flexibleSpace: SafeArea(
+
             child: Container(
+              color: messageColor,
               padding: EdgeInsets.only(right: 16),
               child: Row(
                 children: <Widget>[
@@ -68,7 +83,7 @@ class ChatDetailPageState extends State<ChatDetailPage> {
                       children: <Widget>[
                         Text(name,style: TextStyle( fontSize: 16 ,fontWeight: FontWeight.w600),),
                         SizedBox(height: 6,),
-                        Text("Online",style: TextStyle(color: Colors.grey.shade600, fontSize: 13),),
+                        Text("Online",style: TextStyle(/*color: Colors.grey.shade600, */fontSize: 13),),
                       ],
                     ),
                   ),
@@ -99,7 +114,9 @@ class ChatDetailPageState extends State<ChatDetailPage> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: (messages[index].messageType  == "receiver"?Colors.grey.shade200:Colors.blue[200]),
+
+                      color: (
+                          messages[index].messageType  == "receiver"?messageColor:Colors.blue[200]),
                     ),
                     padding: EdgeInsets.all(16),
                     child: Text(messages[index].messageContent, style: TextStyle(fontSize: 15),),
@@ -111,10 +128,11 @@ class ChatDetailPageState extends State<ChatDetailPage> {
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
+              color: messageColor,
               padding: EdgeInsets.only(left: 10,bottom: 10,top: 10),
               height: 60,
               width: double.infinity,
-              color: Colors.white,
+              //color: Colors.white,
               child: Row(
                 children: <Widget>[
                   GestureDetector(
@@ -136,7 +154,7 @@ class ChatDetailPageState extends State<ChatDetailPage> {
                       controller: myController,
                       decoration: InputDecoration(
                           hintText: "Write message...",
-                          hintStyle: TextStyle(color: Colors.black54),
+                          //hintStyle: TextStyle(color: Colors.black54),
                           border: InputBorder.none
                       ),
 
@@ -164,6 +182,7 @@ class ChatDetailPageState extends State<ChatDetailPage> {
           ),
         ],
       ),
+    ),
     ),
     );
   }

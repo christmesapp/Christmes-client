@@ -11,6 +11,9 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:hive/hive.dart';
 class PersonalPage extends StatefulWidget {
 
+
+
+
   @override
   _PersonalPageState createState() => _PersonalPageState();
 }
@@ -21,6 +24,9 @@ class _PersonalPageState extends State<PersonalPage> {
 
     final double coverHeight = 500;
     final double profileHeight = 114;
+
+
+
 
 
     @override
@@ -96,7 +102,9 @@ class _PersonalPageState extends State<PersonalPage> {
                         onChanged: (val) {
                           print("b"+val.toString());
                           Hive.box('util').put("darkmode", val);
+
                           setState(() {});},
+
                       ),
                     ),
                   ],
