@@ -1,5 +1,5 @@
 
-
+@HiveType
 class ChatUsers{
   String name;
   String messageText;

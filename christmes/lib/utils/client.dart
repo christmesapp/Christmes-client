@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:js_util';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -58,63 +59,93 @@ Future<Uri?> getAvatar () async {
 
 
   Future<void> getRooms() async {
-    groupUsers = [];
-    chatUsers = [];
-    await client.checkHomeserver("https://matrix-client.matrix.org/");
+    print("Listen" + Hive.box('client').get("chatUsers").toString() +
+        Hive.box('client').get("groupUsers").toString());
+    //if(Hive.box('client').get("groupUsers") == null){
+    if (true) {
+      groupUsers = [];
+      chatUsers = [];
 
-    await client.login(
-      LoginType.mLoginPassword,
-      identifier: AuthenticationUserIdentifier(user: username),
-      password: pwd,
+      await client.checkHomeserver("https://matrix-client.matrix.org/");
 
-    );
+      await client.login(
+        LoginType.mLoginPassword,
+        identifier: AuthenticationUserIdentifier(user: username),
+        password: pwd,
+
+      );
 
 
-    Future<List<String>> l = client.getJoinedRooms();
-    Future<List> convertFutureListToList() async {
+      Future<List<String>> l = client.getJoinedRooms();
+      Future<List> convertFutureListToList() async {
+        Future<List> _futureOfList = l;
+        List list = await _futureOfList;
+        print(list);
+        print(list.iterator);
+        for (int i = 0; i < list.length; i++) {
+          bool? directchat = false;
+          print(list[i]);
+          print(client
+              .getRoomById(list[i])
+              ?.displayname);
+          print(client
+              .getRoomById(list[i])
+              ?.isDirectChat);
+          directchat = client
+              .getRoomById(list[i])
+              ?.isDirectChat;
+          if (directchat != null) {
+            if (directchat) {
+              print("addtolist");
 
-      Future<List> _futureOfList = l;
-      List list = await _futureOfList ;
-      print(list);
-      print(list.iterator);
-      for(int i=0; i<list.length; i++){
-        bool? directchat = false;
-        print(list[i]);
-        print(client.getRoomById(list[i])?.displayname);
-        print(client.getRoomById(list[i])?.isDirectChat);
-        directchat = client.getRoomById(list[i])?.isDirectChat;
-        if(directchat!=null) {
-          if (directchat) {
-            print("addtolist");
-
-            cp.chatUsers.add(ChatUsers(
-                name: client.getRoomById(list[i])!.displayname,
-                messageText: "Awesome Setup",
-                imageURL: "https://matrix-client.matrix.org/_matrix/media/v3/thumbnail/matrix.org/tHwINSDGpHigLhiNfKAQxMeR?width=800&height=600&method=scale",
-                time: "Now",
-                roomID: client.getRoomById(list[i])!.id));
-            for(int i=0; i<cp.chatUsers.length; i++) {
-              print( cp.chatUsers[i].name);
-            }
-          } else {
-            gp.chatUsers.add(ChatUsers(name: client.getRoomById(list[i])!.displayname,
-                messageText: "Awesome Setup",
-                imageURL: "https://matrix-client.matrix.org/_matrix/media/v3/thumbnail/matrix.org/tHwINSDGpHigLhiNfKAQxMeR?width=800&height=600&method=scale",
-                time: "Now", roomID: client.getRoomById(list[i])!.id));
-            for(int i=0; i<gp.chatUsers.length; i++) {
-              print( gp.chatUsers[i].name);
+              chatUsers.add(ChatUsers(
+                  name: client.getRoomById(list[i])!.displayname,
+                  messageText: "Awesome Setup",
+                  imageURL: "https://matrix-client.matrix.org/_matrix/media/v3/thumbnail/matrix.org/tHwINSDGpHigLhiNfKAQxMeR?width=800&height=600&method=scale",
+                  time: "Now",
+                  roomID: client.getRoomById(list[i])!.id));
+              for (int i = 0; i < chatUsers.length; i++) {
+                print(chatUsers[i].name);
+              }
+            } else {
+              groupUsers.add(
+                  ChatUsers(name: client.getRoomById(list[i])!.displayname,
+                      messageText: "Awesome Setup",
+                      imageURL: "https://matrix-client.matrix.org/_matrix/media/v3/thumbnail/matrix.org/tHwINSDGpHigLhiNfKAQxMeR?width=800&height=600&method=scale",
+                      time: "Now",
+                      roomID: client.getRoomById(list[i])!.id));
+              for (int i = 0; i < groupUsers.length; i++) {
+                print(groupUsers[i].name);
+              }
             }
           }
         }
+
+
+        Hive.box('chats').put("chatUsers", chatUsers);
+        Hive.box('chats').put("groupUsers", groupUsers);
+
+        return list;
+
       }
 
+      convertFutureListToList();
 
-      return list;
+
+
+
+      client.logout();
+    } else {
+
+
     }
 
-    convertFutureListToList();
+    List<ChatUsers> chatUser = Hive.box('client').get("chatUsers");
+    List<ChatUsers> groupUser = Hive.box('client').get("groupUsers");
 
-    client.logout();
+    print("ListenNach" + chatUser.toString() +
+        groupUser.toString());
+
   }
 
 

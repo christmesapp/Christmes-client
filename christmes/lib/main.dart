@@ -10,6 +10,7 @@ Future<void> main() async {
   await Hive.initFlutter();
   var box = await Hive.openBox('client');
   var util = await Hive.openBox("util");
+  var chats = await Hive.openBox("chats");
   print("username");
   print(box.get("username"));
   if(box.get("username")!=null){
@@ -19,6 +20,9 @@ Future<void> main() async {
   runApp(MyApp());
 
 }
+
+
+
 
 class MyApp extends StatelessWidget {
 
