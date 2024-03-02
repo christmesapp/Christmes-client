@@ -143,6 +143,7 @@ class ChatDetailPageState extends State<ChatDetailPage> {
                     ),
                   ),
                   const SizedBox(width: 15,),
+
                   FloatingActionButton(
                     onPressed: () async {
                       print("pressed");
