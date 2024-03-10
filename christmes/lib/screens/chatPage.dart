@@ -2,24 +2,23 @@ import 'package:christmes/models/chatUsersModel.dart';
 import 'package:christmes/widgets/conversationList.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import '../utils/client.dart';
 
 class ChatPage extends StatefulWidget {
   @override
   ChatPageState createState() => ChatPageState();
 }
 
+MatrixClient client = new MatrixClient();
 class ChatPageState extends State<ChatPage> {
 
 
 
-  //List<ChatUsers> chatUsers = [];
-  List<ChatUsers> chatUsers = Hive.box('client').get("chatUsers");
+  List<ChatUsers> chatUsers = Hive.box<ChatUsersList>("chats").get("chat")!.list;
+  //List<ChatUsers> chatUsers = client.chatUsers;
 
   @override
   Widget build(BuildContext context) {
-
-    print("Chatuser "+chatUsers.toString());
-
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: Hive.box('util').get("darkmode", defaultValue: true)? ThemeMode.dark : ThemeMode.light,

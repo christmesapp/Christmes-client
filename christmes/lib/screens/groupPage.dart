@@ -1,4 +1,6 @@
 import 'package:hive/hive.dart';
+
+import '../utils/client.dart';
 import 'package:christmes/models/chatUsersModel.dart';
 import 'package:christmes/widgets/conversationList.dart';
 import 'package:flutter/material.dart';
@@ -7,20 +9,17 @@ class GroupPage extends StatefulWidget {
   GroupPageState createState() => GroupPageState();
 }
 
+MatrixClient client = MatrixClient();
 class GroupPageState extends State<GroupPage> {
 
 
 
 
-  List<ChatUsers> chatUsers = Hive.box('client').get("groupUsers");
-
-  //List<ChatUsers> chatUsers = [];
+  //List<ChatUsers> chatUsers = client.groupUsers;
+  List<ChatUsers> chatUsers = Hive.box<ChatUsersList>("chats").get("group")!.list;
 
   @override
   Widget build(BuildContext context) {
-
-    print("Groupuser "+chatUsers.toString());
-
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: Hive.box('util').get("darkmode", defaultValue: true)? ThemeMode.dark : ThemeMode.light,

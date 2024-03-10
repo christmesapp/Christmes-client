@@ -6,23 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'models/chatUsersModel.dart';
+
 Future<void> main() async {
   await Hive.initFlutter();
+  Hive.registerAdapter(ChatUsersAdapter());
+  Hive.registerAdapter(ChatUsersListAdapter());
   var box = await Hive.openBox('client');
   var util = await Hive.openBox("util");
-  var chats = await Hive.openBox("chats");
+  var chats = await Hive.openBox<ChatUsersList>("chats");
   print("username");
   print(box.get("username"));
-  if(box.get("username")!=null){
+  if(chats.get("chat")!=null&&chats.get("group")!=null){
     MatrixClient client = MatrixClient();
     await client.getRooms();
+
   }
   runApp(MyApp());
 
 }
-
-
-
 
 class MyApp extends StatelessWidget {
 

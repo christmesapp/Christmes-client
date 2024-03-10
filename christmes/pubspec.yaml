@@ -29,10 +29,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  matrix: ^0.8.12
+  matrix: ^0.8.14
   flutter_olm: ^1.2.0
   flutter_secure_storage:
   cryptography_flutter: ^2.0.2
+  watcher: ^1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -45,7 +46,8 @@ dependencies:
   babstrap_settings_screen: ^0.1.1
 
 dev_dependencies:
-  hive_generator: ^1.1.1
+  hive_generator: ^2.0.1
+  build_runner: ^2.1.8
   flutter_test:
     sdk: flutter
 
