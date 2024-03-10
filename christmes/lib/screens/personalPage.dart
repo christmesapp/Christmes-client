@@ -135,6 +135,7 @@ class _PersonalPageState extends State<PersonalPage> {
                         print("before"+username+pwd);
                         Hive.box('client').delete("username");
                         Hive.box('client').delete("pwd");
+                        Hive.box('util').put("darkmode", true);
                         Navigator.push(
                             context, MaterialPageRoute(builder: (_) => LoginPage()));
                       },
